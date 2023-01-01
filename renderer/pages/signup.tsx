@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "../components/Link";
 import { Input } from "../styles/input";
 import { InputWrapper } from "./home";
-import { loginEmail, signUpEmail } from "../server/firebase";
+import { signUpEmail } from "../server/firebase";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -52,7 +52,7 @@ function SignUp() {
         </InputWrapper>
 
         <Button onClick={onClickSignUp} variant="contained" color="secondary">
-          <Link href="/signup" style={{ color: "white" }}>
+          <Link href="/home" style={{ color: "white" }}>
             회원가입하기
           </Link>
         </Button>
