@@ -9,8 +9,6 @@ import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogActions from "@material-ui/core/DialogActions";
 import Typography from "@material-ui/core/Typography";
 import Link from "../components/Link";
-import { Input } from "../styles/input";
-import styled from "@emotion/styled";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -21,7 +19,6 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-// 로그인 페이지
 function Home() {
   const classes = useStyles({});
   const [open, setOpen] = React.useState(false);
@@ -31,7 +28,7 @@ function Home() {
   return (
     <React.Fragment>
       <Head>
-        <title>마음연구소 로그인</title>
+        <title>Home - Nextron (with-typescript-material-ui)</title>
       </Head>
       <div className={classes.root}>
         <Dialog open={open} onClose={handleClose}>
@@ -46,39 +43,21 @@ function Home() {
           </DialogActions>
         </Dialog>
         <Typography variant="h4" gutterBottom>
-          마음연구소
+          Material-UI
         </Typography>
-        <Typography variant="h6" gutterBottom>
-          로그인
+        <Typography variant="subtitle1" gutterBottom>
+          with Nextron
         </Typography>
-        {/* <img src="/images/logo.png" /> */}
-
-        <InputWrapper>
-          <Input placeholder="이메일을 입력하세요" />
-          <Input placeholder="비밀번호를 입력하세요" />
-        </InputWrapper>
-
+        <img src="/images/logo.png" />
         <Typography gutterBottom>
-          <Button variant="contained" color="primary" onClick={handleClick}>
-            <Link href="/next" style={{ color: "white" }}>
-              로그인하기
-            </Link>
-          </Button>
+          <Link href="/next">Go to the next page</Link>
         </Typography>
         <Button variant="contained" color="secondary" onClick={handleClick}>
-          <Link href="/signup" style={{ color: "white" }}>
-            회원가입하기
-          </Link>
+          Super Secret Password
         </Button>
       </div>
     </React.Fragment>
   );
 }
-
-export const InputWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 
 export default Home;
