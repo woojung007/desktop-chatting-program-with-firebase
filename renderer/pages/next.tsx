@@ -1,14 +1,17 @@
-import React from 'react';
-import Head from 'next/head';
-import { Theme, makeStyles, createStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
-import Link from '../components/Link';
+import React from "react";
+import Head from "next/head";
+import { Theme, makeStyles, createStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Link from "../components/Link";
+import styled from "@emotion/styled";
+import { COLORS } from "../lib/variables";
+import UserList from "../components/UserList";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      textAlign: 'center',
+      textAlign: "center",
       paddingTop: theme.spacing(4),
     },
   })
@@ -20,24 +23,35 @@ function Next() {
   return (
     <React.Fragment>
       <Head>
-        <title>Next - Nextron (with-typescript-material-ui)</title>
+        <title>마음연구소 채팅하기</title>
       </Head>
-      <div className={classes.root}>
-        <Typography variant="h4" gutterBottom>
-          Material-UI
-        </Typography>
-        <Typography variant="subtitle1" gutterBottom>
-          with Nextron
-        </Typography>
-        <Typography gutterBottom>
-          <Link href="/home">Go to the home page</Link>
-        </Typography>
-        <Button variant="contained" color="primary">
-          Do nothing button
-        </Button>
-      </div>
+
+      <Wrapper>
+        <Users>
+          유저목록
+          <UserList />
+        </Users>
+        <Chatting>채팅화면</Chatting>
+      </Wrapper>
     </React.Fragment>
   );
-};
+}
+
+const Wrapper = styled.div`
+  display: flex;
+  height: 100vh;
+  min-height: 100%;
+  background-color: ${COLORS.secondary[600]};
+`;
+
+const Users = styled.div`
+  width: 60vw;
+  color: white;
+`;
+
+const Chatting = styled.div`
+  width: 40vw;
+  background-color: ${COLORS.secondary[200]};
+`;
 
 export default Next;
