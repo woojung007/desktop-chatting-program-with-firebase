@@ -5,8 +5,11 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { theme } from "../lib/theme";
 import type { AppProps } from "next/app";
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { Global } from "@emotion/react";
+import { globalStyles } from "../styles/global";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyD_PJdZ009pS2qqm07s1Io5V7FyCI4X4c4",
   authDomain: "desktop-chatting-program.firebaseapp.com",
   projectId: "desktop-chatting-program",
@@ -35,6 +38,7 @@ export default function (props: AppProps) {
           content="minimum-scale=1, initial-scale=1, width=device-width"
         />
       </Head>
+      <Global styles={globalStyles} />
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <Component {...pageProps} />

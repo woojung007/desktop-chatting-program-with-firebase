@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Link from "../components/Link";
 import { Input } from "../styles/input";
 import { InputWrapper } from "./home";
-import { signUpEmail } from "../server/firebase";
+import { createUser, signUpEmail } from "../server/firebase";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -18,13 +18,16 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 function SignUp() {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [passwordCheck, setPasswordCheck] = useState("");
 
   const classes = useStyles({});
 
   const onClickSignUp = () => {
     signUpEmail(email, password);
+    createUser(name, email);
     alert("회원가입 완료");
   };
 
@@ -42,12 +45,20 @@ function SignUp() {
         </Typography>
         <InputWrapper>
           <Input
+            placeholder="이름을 입력하세요"
+            onChange={({ target }) => setName(target.value)}
+          />
+          <Input
             placeholder="이메일을 입력하세요"
             onChange={({ target }) => setEmail(target.value)}
           />
           <Input
             placeholder="비밀번호를 입력하세요"
             onChange={({ target }) => setPassword(target.value)}
+          />
+          <Input
+            placeholder="비밀번호를 다시 입력하세요"
+            onChange={({ target }) => setPasswordCheck(target.value)}
           />
         </InputWrapper>
 

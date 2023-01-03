@@ -1,12 +1,10 @@
 import React from "react";
 import Head from "next/head";
 import { Theme, makeStyles, createStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Link from "../components/Link";
 import styled from "@emotion/styled";
 import { COLORS } from "../lib/variables";
 import UserList from "../components/UserList";
+// import Channel from "../components/chat";
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -31,7 +29,7 @@ function Next() {
           유저목록
           <UserList />
         </Users>
-        <Chatting>채팅화면</Chatting>
+        <Chatting>{/* <Channel /> */}</Chatting>
       </Wrapper>
     </React.Fragment>
   );
